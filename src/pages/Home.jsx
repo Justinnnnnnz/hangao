@@ -21,33 +21,48 @@ const stats = [
 const services = [
   {
     icon: <FiTool size={32} />,
-    title: '锅炉检测',
-    desc: '包括蒸汽锅炉、热水锅炉、有机热载体锅炉等各类锅炉的定期检验、安装监检及维修改造后检验。',
+    title: '车用气瓶',
+    desc: '针对车用压缩天然气与相关气瓶开展定期检验，覆盖外观、附件及安全性能核查。',
   },
   {
     icon: <FiShield size={32} />,
-    title: '压力容器检测',
-    desc: '涵盖固定式压力容器、移动式压力容器的年度检查、全面检验及耐压试验等综合检测服务。',
+    title: 'CNG/LNG安全阀校验（10MPa以下）',
+    desc: '面向10MPa以下工况的安全阀实施整定与密封性能校验，确保启闭动作准确可靠。',
   },
   {
     icon: <FiCheckCircle size={32} />,
-    title: '压力管道检测',
-    desc: '工业管道、公用管道、长输管道的在线检验、全面检验，确保管道系统安全运行。',
+    title: 'CNG/LNG安全阀校验（10MPa及以上）',
+    desc: '针对10MPa及以上高压工况进行专项校验与复核，满足高压系统运行安全要求。',
   },
   {
     icon: <FiFileText size={32} />,
-    title: '电梯检测',
-    desc: '曳引与强制驱动电梯、液压电梯、自动扶梯和自动人行道的定期检验和监督检验。',
+    title: '工业用低温瓶（杜瓦瓶检测）',
+    desc: '提供杜瓦瓶专项检测服务，重点关注低温容器结构完整性、密封性与安全附件状态。',
   },
   {
     icon: <FiAward size={32} />,
-    title: '起重机械检测',
-    desc: '桥式起重机、门式起重机、塔式起重机、流动式起重机等各类起重机械的定期检验。',
+    title: '呼吸器检测',
+    desc: '对呼吸器关键部件及整体性能进行检测评估，支撑工业安全与应急使用场景。',
   },
   {
     icon: <FiUsers size={32} />,
-    title: '安全阀校验',
-    desc: '各类安全阀的在线、离线校验服务，出具权威校验报告，确保安全阀灵敏可靠。',
+    title: '液化石油气钢瓶',
+    desc: '面向液化石油气钢瓶开展规范化检验，强化瓶体状态、阀件与使用安全管控。',
+  },
+  {
+    icon: <FiTool size={32} />,
+    title: '消防用焊接气瓶',
+    desc: '依据相关规范执行消防用焊接气瓶检测，重点核查承压部件及附件有效性。',
+  },
+  {
+    icon: <FiShield size={32} />,
+    title: '钢制无缝气瓶（丙烷气瓶）',
+    desc: '针对钢制无缝气瓶及丙烷气瓶进行综合检验，保障瓶体质量与运行安全。',
+  },
+  {
+    icon: <FiCheckCircle size={32} />,
+    title: '压力表（检定）',
+    desc: '提供压力表计量检定与状态确认服务，确保测量数据准确、可追溯、可复核。',
   },
 ];
 
@@ -111,9 +126,12 @@ export default function Home() {
       <section className="section services-home">
         <div className="container">
           <div className="section-title">
-            <h2>核心检测服务</h2>
-            <p>覆盖特种设备全品类检测，为您的企业安全生产提供全方位保障</p>
+            <h2>核心检验项目</h2>
+            <p>围绕气瓶、安全阀、低温瓶与压力表等重点项目，提供规范、可靠、可追溯的检验服务</p>
           </div>
+          <p className="services-home-intro">
+            当前重点服务覆盖车用气瓶、CNG/LNG 安全阀分压级校验、工业用低温瓶（杜瓦瓶）检测、呼吸器检测、液化石油气钢瓶、消防用焊接气瓶、钢制无缝气瓶（丙烷气瓶）及压力表检定，满足企业日常运行与安全管理的多场景需求。
+          </p>
           <div className="services-grid">
             {services.map((s, i) => (
               <div key={i} className="service-card">

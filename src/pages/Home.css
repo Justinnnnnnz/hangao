@@ -133,6 +133,15 @@
   gap: 25px;
 }
 
+.services-home-intro {
+  max-width: 980px;
+  margin: -10px auto 28px;
+  text-align: center;
+  color: var(--text-light);
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+
 .service-card {
   background: #fff;
   border: 1px solid var(--border);
