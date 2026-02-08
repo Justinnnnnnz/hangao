@@ -84,6 +84,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} 唐山市杭奥特种设备检验有限公司 版权所有</p>
           <p>冀ICP备XXXXXXXX号-1 | 技术支持</p>
         </div>
+        <p className="site-testing-note">网站测试中，内容持续完善中。</p>
       </div>
     </footer>
   );
