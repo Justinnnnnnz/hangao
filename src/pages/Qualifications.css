@@ -1,0 +1,175 @@
+/* ===== Certifications ===== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.cert-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  transition: var(--transition);
+}
+
+.cert-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.cert-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(211, 84, 0, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.cert-card h3 {
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cert-row {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: flex;
+  gap: 4px;
+}
+
+.cert-label {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cert-level {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== Honors ===== */
+.honors-section {
+  background: var(--bg-light);
+}
+
+.honors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.honor-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.honor-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.honor-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.honor-year {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.honor-title {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* ===== Equipment Table ===== */
+.equip-table-wrap {
+  overflow-x: auto;
+}
+
+.equip-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.equip-table thead {
+  background: var(--primary);
+  color: #fff;
+}
+
+.equip-table th {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.equip-table td {
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.equip-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.equip-table tbody tr:nth-child(even) {
+  background: var(--bg-light);
+}
+
+.equip-table tbody tr:hover {
+  background: rgba(26, 82, 118, 0.04);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .honors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
