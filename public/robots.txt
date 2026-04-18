@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tshangao.cn/sitemap.xml
