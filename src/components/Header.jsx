@@ -32,7 +32,7 @@ export default function Header() {
   const labels = navItems[lang];
   const topBarAddress = isEnglish
     ? 'Hangao Inspection Office Building, Lubei District, Tangshan, Hebei, 063000'
-    : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，06300';
+    : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000';
   const companyName = '唐山市杭奥特种设备检验有限公司';
   const companySubname = 'Tangshan Hangao Special Equipment Inspection Co., Ltd.';
 

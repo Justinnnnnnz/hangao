@@ -10,7 +10,7 @@ const content = {
     cards: [
       { icon: <FiPhone />, title: '服务热线', value: '13582928866', note: '工作日 08:00-17:30' },
       { icon: <FiMail />, title: '邮箱咨询', value: 'hatj@tshangao.com.cn', note: '24小时内回复' },
-      { icon: <FiMapPin />, title: '公司地址', value: '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，06300', note: '欢迎预约来访' },
+      { icon: <FiMapPin />, title: '公司地址', value: '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000', note: '欢迎预约来访' },
       { icon: <FiClock />, title: '服务时间', value: '周一至周五 08:00-17:30', note: '节假日支持应急响应' },
     ],
     formTitle: '在线咨询',

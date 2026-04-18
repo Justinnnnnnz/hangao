@@ -37,7 +37,7 @@ export default function Footer() {
     : '专业从事特种设备检验、检测与技术服务，致力于为客户提供安全、可靠、高效的一站式解决方案。';
   const address = isEnglish
     ? 'Hangao Inspection Office Building, East of the intersection of Huancheng Road and Tangfeng North Road, Lubei District, Tangshan, Hebei, 063000'
-    : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，06300';
+    : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000';
   const workingHours = isEnglish ? 'Mon to Fri 8:00-17:30' : '周一至周五 8:00-17:30';
 
   return (
