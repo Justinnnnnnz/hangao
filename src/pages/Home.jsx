@@ -15,7 +15,7 @@ const stats = [
   { number: '15+', label: '年行业经验' },
   { number: '5000+', label: '检测项目' },
   { number: '200+', label: '服务企业' },
-  { number: '50+', label: '专业技术人员' },
+  { number: '80+', label: '专业技术人员' },
 ];
 
 const services = [
@@ -153,13 +153,13 @@ export default function Home() {
           <div className="about-preview-text">
             <h2>关于杭奥</h2>
             <p className="about-lead">
-              唐山市杭奥特种设备检验有限公司成立于2009年，是经国家市场监督管理总局核准的专业特种设备检验检测机构。
+              唐山市杭奥特种设备检验有限公司注册资金500万元，是一家从事综合检测服务的高新技术企业，主要从事特种设备检测。
             </p>
             <p>
-              公司位于河北省唐山市，拥有现代化的检测实验室和先进的检测设备。多年来，公司始终坚持"科学、公正、准确、高效"的质量方针，为唐山及周边地区数百家企业提供了优质的特种设备检验检测服务。
+              现有业务包含气瓶（复合式呼吸器、氧气呼吸器、焊接绝热气瓶、无缝钢质气瓶、车用CNG、LNG气瓶等）检测；安全阀校验（包括高低压安全阀离线、在线校验）。
             </p>
             <p>
-              公司业务涵盖锅炉、压力容器、压力管道、电梯、起重机械、厂内专用机动车辆等特种设备的检验检测，以及无损检测、理化检测、安全阀校验等专业技术服务。
+              拟开展锅炉检测、压力容器、压力管道、游乐设施、电梯、厂内机械、起重设备检测。主要服务于钢铁、化工、焦炭、热力、游乐设施、工民建筑等多种行业，为工业生产和民用特种设备使用安全保驾护航。
             </p>
             <Link to="/about" className="btn btn-primary" style={{ marginTop: 20 }}>
               了解更多 <FiArrowRight />
@@ -202,7 +202,7 @@ export default function Home() {
             <Link to="/contact" className="btn btn-primary">
               立即咨询
             </Link>
-            <a href="tel:03152345678" className="btn btn-outline">
+            <a href="tel:13582928866" className="btn btn-outline">
               <FiPhone /> 拨打电话
             </a>
           </div>

@@ -20,8 +20,49 @@ const team = [
 const profileHighlights = [
   '公司成立于2009年，持有特种设备检验检测机构核准证，并通过ISO体系认证。',
   '可承担锅炉、压力容器、压力管道、电梯、起重机械等检验检测与技术服务。',
-  '检验检测人员约80人，其中检验师、检验员及无损检测人员配置齐全，具备多项持证能力。',
+  '检验检测人员80+，其中检验师、检验员及无损检测人员配置齐全，具备多项持证能力。',
   '公司长期服务唐山及周边工业企业，覆盖化工、钢铁、制造、能源等多个行业场景。',
+];
+
+const qualificationItems = [
+  '车用CNG气瓶检测资质',
+  '车用LNG气瓶检测资质',
+  '工业用低温瓶（杜瓦瓶）检测资质',
+  '无缝气瓶检测资质',
+  '空气呼吸器检测资质',
+  '氧气呼吸器检测资质',
+  '安全阀校验资质',
+];
+
+const serviceUsers = [
+  '中石油',
+  '中石化',
+  '大型钢厂',
+  '公交客运公司',
+  '运输公司',
+  '气体公司',
+  '燃气公司',
+  '消防',
+  '化工企业',
+];
+
+const qualityPolicies = [
+  {
+    title: '诚实守信',
+    desc: '严格履行检测合同，向客户提供优质、规范的服务，承担应尽的法律责任和义务。',
+  },
+  {
+    title: '行为公正',
+    desc: '测量结果不受行政干预、外界压力、经济利益及其他利益影响，确保检验检测独立、公正。',
+  },
+  {
+    title: '方法科学',
+    desc: '依据技术标准或客户约定方法，使用检定合格或经校准设备开展检测，确保过程科学规范。',
+  },
+  {
+    title: '数据准确',
+    desc: '落实设备校准计划，确保检测结果可溯源至国际单位制（SI），实现数据精准可靠、可互比互认。',
+  },
 ];
 
 export default function About() {
@@ -64,12 +105,12 @@ export default function About() {
               </div>
               <div className="intro-stat">
                 <FiUsers size={28} />
-                <span className="intro-stat-num">50+</span>
+                <span className="intro-stat-num">80+</span>
                 <span className="intro-stat-label">专业技术人员</span>
               </div>
               <div className="intro-stat">
                 <FiAward size={28} />
-                <span className="intro-stat-num">500+</span>
+                <span className="intro-stat-num">200+</span>
                 <span className="intro-stat-label">服务企业</span>
               </div>
             </div>
@@ -100,6 +141,54 @@ export default function About() {
               <p>科学严谨、公正廉洁、客户至上、持续创新。以诚信立业，以质量取胜。</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-title">
+            <h2>资质与服务领域</h2>
+            <p>检测资质覆盖气瓶、呼吸器与安全阀等重点方向，服务工业与民用多行业客户</p>
+          </div>
+          <div className="business-grid">
+            <article className="business-card">
+              <h3>核心检测校验资质</h3>
+              <ul>
+                {qualificationItems.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+              <p className="business-note">公司是国内检测资质较齐全的企业之一，长期从事检测与维修综合业务。</p>
+            </article>
+            <article className="business-card">
+              <h3>主要服务用户</h3>
+              <ul>
+                {serviceUsers.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section quality-section">
+        <div className="container">
+          <div className="section-title">
+            <h2>质量方针</h2>
+            <p>以科学、公正、规范、可追溯为准则，持续提升检验检测能力与服务品质</p>
+          </div>
+          <div className="quality-grid">
+            {qualityPolicies.map((item, i) => (
+              <article key={i} className="quality-card">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
+            ))}
+          </div>
+          <p className="quality-summary">
+            我们秉承诚信为本、客户至上的核心价值观，在追求品质的同时持续完善服务体系，以高质量成果和完善的售前、售中、售后服务赢得广大用户信赖。
+          </p>
         </div>
       </section>
 

@@ -33,7 +33,7 @@ export default function Header() {
       <div className="top-bar">
         <div className="container top-bar-inner">
           <div className="top-bar-left">
-            <span><FiPhone /> 0315-5913128 / 5913198</span>
+            <span><FiPhone /> 13582928866</span>
             <span><FiMail /> hatj@tshangao.com.cn</span>
           </div>
           <div className="top-bar-right">
@@ -56,16 +56,6 @@ export default function Header() {
               }}
             />
             <div className="logo-name-wrap">
-              <img
-                className="logo-name-image"
-                src="/hangao-name.png"
-                alt="唐山市杭奥特种设备检验有限公司"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.nextElementSibling;
-                  if (fallback) fallback.style.display = 'block';
-                }}
-              />
               <div className="logo-name-fallback">
                 <span>唐山市杭奥特种设备检验有限公司</span>
                 <small>Tangshan Hangao Special Equipment Inspection Co., Ltd.</small>

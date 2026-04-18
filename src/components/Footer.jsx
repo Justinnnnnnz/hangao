@@ -65,7 +65,7 @@ export default function Footer() {
               </li>
               <li>
                 <FiPhone />
-                <span>0315-5913128 / 5913198</span>
+                <span>13582928866</span>
               </li>
               <li>
                 <FiMail />
@@ -82,9 +82,12 @@ export default function Footer() {
         {/* Bottom */}
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} 唐山市杭奥特种设备检验有限公司 版权所有</p>
-          <p>冀ICP备XXXXXXXX号-1 | 技术支持</p>
+          <p>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
+              冀ICP备2026012504号
+            </a>
+          </p>
         </div>
-        <p className="site-testing-note">网站测试中，内容持续完善中。</p>
       </div>
     </footer>
   );

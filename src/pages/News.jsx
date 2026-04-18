@@ -4,6 +4,20 @@ import './News.css';
 
 const newsData = [
   {
+    id: 0,
+    category: '公司新闻',
+    tag: 'company',
+    title: '路北区市场监督管理局气瓶质量安全追溯体系建设“回头看”工作会在我公司召开并圆满结束',
+    date: '2021-04-29',
+    summary:
+      '为贯彻落实路北区市场监督管理局气瓶质量安全追溯体系建设，积极推进气瓶质量安全工作，4月29日上午召开路北区市场监督管理局气瓶质量安全追溯体系建设“回头看”工作会。',
+    content: [
+      '路北区何局长与张科长就我区气瓶质量安全有关要求、排查整治工作开展情况、目前存在的问题和下一步安排做了系统总结，并提出了具体工作要求。',
+      '会议指出：以全面落实气瓶充装单位、检测单位追溯管理责任为基础，以提升气瓶质量安全与公共安全为目标，统一追溯标注，强化全市不同信息化充装管理和检验管理系统信息互动共享，提高监管效能，实现全市气瓶来源可查、流向可追、责任可究。',
+      '我公司贯彻落实会议精神，加强工作管理，切实落实唐山市气瓶质量安全追溯体系建设“回头看”工作的会议精神，为客户提供更系统、更安全、更优质的服务。',
+    ],
+  },
+  {
     id: 1,
     category: '公司新闻',
     tag: 'company',
@@ -25,7 +39,7 @@ const newsData = [
     id: 3,
     category: '公司新闻',
     tag: 'company',
-    title: '我公司成功举办2024年度特种设备安全技术培训',
+    title: '我公司成功举办2023年度特种设备安全技术培训',
     date: '2023-12-20',
     summary:
       '为提升企业特种设备安全管理水平，我公司于12月18-20日成功举办了为期三天的特种设备安全技术培训班。来自唐山及周边地区30余家企业的80余名安全管理人员参加了此次培训。',
@@ -134,6 +148,20 @@ export default function News() {
                   </div>
                   <h3>{news.title}</h3>
                   <p>{news.summary}</p>
+                  {news.content && (
+                    <div className="news-content-detail">
+                      {news.content.map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))}
+                    </div>
+                  )}
+                  {news.images && (
+                    <div className="news-image-grid">
+                      {news.images.map((image, index) => (
+                        <img key={index} src={image} alt={`${news.title} 图片${index + 1}`} />
+                      ))}
+                    </div>
+                  )}
                   <span className="news-more">
                     阅读全文 <FiArrowRight />
                   </span>

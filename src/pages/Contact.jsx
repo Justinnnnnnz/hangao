@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FiPhone, FiMail, FiMapPin, FiClock, FiSend, FiMessageCircle } from 'react-icons/fi';
 import './Contact.css';
 
@@ -17,6 +18,14 @@ const faqs = [
 ];
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+    e.currentTarget.reset();
+  }
+
   return (
     <div className="contact-page">
       <section className="page-banner">
@@ -32,7 +41,7 @@ export default function Contact() {
             <article className="contact-card">
               <FiPhone />
               <h3>服务热线</h3>
-              <p>0315-5913128 / 5913198</p>
+              <p>13582928866</p>
               <span>工作日 08:00-17:30</span>
             </article>
             <article className="contact-card">
@@ -59,24 +68,24 @@ export default function Contact() {
             <h2>
               <FiMessageCircle /> 在线咨询
             </h2>
-            <p>先做预览版本，暂不接入后端。你后续给我字段我可以再对接提交接口。</p>
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <p>欢迎填写留言信息，我们会尽快与你联系。</p>
+            <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-grid">
                 <label>
                   联系人
-                  <input type="text" placeholder="请输入姓名" />
+                  <input type="text" placeholder="请输入姓名" required />
                 </label>
                 <label>
                   联系电话
-                  <input type="tel" placeholder="请输入手机号/座机" />
+                  <input type="tel" placeholder="请输入手机号/座机" required />
                 </label>
                 <label>
                   公司名称
-                  <input type="text" placeholder="请输入公司名称" />
+                  <input type="text" placeholder="请输入公司名称" required />
                 </label>
                 <label>
                   设备类型
-                  <select defaultValue="">
+                  <select defaultValue="" required>
                     <option value="" disabled>
                       请选择
                     </option>
@@ -91,11 +100,16 @@ export default function Contact() {
               </div>
               <label>
                 需求说明
-                <textarea rows="6" placeholder="请描述设备数量、使用情况、计划检测时间等信息" />
+                <textarea rows="6" placeholder="请描述设备数量、使用情况、计划检测时间等信息" required />
               </label>
               <button type="submit" className="btn btn-primary">
                 提交咨询 <FiSend />
               </button>
+              {submitted && (
+                <p className="form-success" role="status">
+                  留言提交成功，我们已收到你的咨询信息。
+                </p>
+              )}
             </form>
           </div>
         </div>
@@ -105,7 +119,7 @@ export default function Contact() {
         <div className="container">
           <div className="section-title">
             <h2>常见问题</h2>
-            <p>你可以先看这些高频问题，后续我再按你实际业务补齐</p>
+            <p>你可以先查看这些高频问题，快速了解常见咨询内容。</p>
           </div>
           <div className="faq-list">
             {faqs.map((item, i) => (

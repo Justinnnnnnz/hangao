@@ -113,6 +113,13 @@
   gap: 8px;
 }
 
+.form-success {
+  margin-top: 4px;
+  color: var(--success);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
 .faq-section {
   background: var(--bg-light);
 }

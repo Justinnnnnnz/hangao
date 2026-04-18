@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  height: 88px;
+  height: 92px;
 }
 
 /* ===== Logo ===== */
@@ -56,11 +56,12 @@
 }
 
 .logo-mark {
-  width: 84px;
-  height: 84px;
+  width: 78px;
+  height: 78px;
   border-radius: 8px;
   object-fit: contain;
   flex-shrink: 0;
+  transform: translateY(3px);
 }
 
 .logo-name-wrap {
@@ -69,29 +70,25 @@
   align-items: center;
 }
 
-.logo-name-image {
-  width: min(100%, 780px);
-  max-height: 64px;
-  object-fit: contain;
-  object-position: left center;
-}
-
 .logo-name-fallback {
-  display: none;
+  display: block;
   color: var(--primary);
 }
 
 .logo-name-fallback span {
   display: block;
-  font-weight: 700;
-  font-size: 1.1rem;
-  line-height: 1.2;
+  font-weight: 800;
+  font-size: clamp(1.28rem, 1.65vw, 1.75rem);
+  line-height: 1.18;
+  letter-spacing: 0.25px;
 }
 
 .logo-name-fallback small {
   display: block;
-  font-size: 0.75rem;
-  color: var(--text-light);
+  margin-top: 5px;
+  font-size: clamp(0.78rem, 1.02vw, 0.96rem);
+  line-height: 1.25;
+  color: #556b85;
 }
 
 /* ===== Navigation ===== */
@@ -150,17 +147,21 @@
   }
 
   .header-inner {
-    height: 72px;
+    height: 76px;
   }
 
   .logo-mark {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
+    transform: translateY(2px);
   }
 
-  .logo-name-image {
-    max-width: 520px;
-    max-height: 48px;
+  .logo-name-fallback span {
+    font-size: 1.08rem;
+  }
+
+  .logo-name-fallback small {
+    font-size: 0.76rem;
   }
 
   .menu-toggle {
@@ -169,7 +170,7 @@
 
   .nav {
     position: fixed;
-    top: 72px;
+    top: 76px;
     left: 0;
     right: 0;
     background: #fff;
@@ -197,20 +198,16 @@
   }
 
   .logo-mark {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-name-image {
-    max-width: 300px;
-    max-height: 36px;
+    width: 46px;
+    height: 46px;
+    transform: translateY(1px);
   }
 
   .logo-name-fallback span {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .logo-name-fallback small {
-    font-size: 0.62rem;
+    font-size: 0.66rem;
   }
 }
