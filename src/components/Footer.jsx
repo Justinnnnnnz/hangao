@@ -28,7 +28,6 @@ export default function Footer() {
         'Gas Cylinder Inspection',
         'Breathing Apparatus Testing',
         'LNG Safety Valve Calibration',
-        'LNG Safety Valve Calibration',
         'Pressure Gauge Verification',
       ]
     : ['气瓶检测', '呼吸器检测', 'LNG安全阀校验', 'LNG安全阀校验', '压力表检定'];
@@ -84,8 +83,8 @@ export default function Footer() {
           <div className="footer-col">
             <h4>{isEnglish ? 'Core Services' : '主要服务'}</h4>
             <ul className="footer-links">
-              {serviceLinks.map((item) => (
-                <li key={item}><Link to={buildPath('/services')}>{item}</Link></li>
+              {serviceLinks.map((item, index) => (
+                <li key={`${item}-${index}`}><Link to={buildPath('/services')}>{item}</Link></li>
               ))}
             </ul>
           </div>
