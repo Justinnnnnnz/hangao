@@ -24,8 +24,14 @@ export default function Footer() {
         { path: '/contact', label: '联系我们' },
       ];
   const serviceLinks = isEnglish
-    ? ['Boiler Inspection', 'Pressure Vessel Inspection', 'Pressure Piping Inspection', 'Elevator Inspection', 'Lifting Machinery Inspection', 'Safety Valve Calibration']
-    : ['锅炉检测', '压力容器检测', '压力管道检测', '电梯检测', '起重机械检测', '安全阀校验'];
+    ? [
+        'Gas Cylinder Inspection',
+        'Breathing Apparatus Testing',
+        'LNG Safety Valve Calibration',
+        'LNG Safety Valve Calibration',
+        'Pressure Gauge Verification',
+      ]
+    : ['气瓶检测', '呼吸器检测', 'LNG安全阀校验', 'LNG安全阀校验', '压力表检定'];
   const companyName = isEnglish
     ? 'Tangshan Hangao Special Equipment Inspection Co., Ltd.'
     : '唐山市杭奥特种设备检验有限公司';
