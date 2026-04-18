@@ -10,6 +10,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Qualifications from './pages/Qualifications';
 import News from './pages/News';
+import NewsArticle from './pages/NewsArticle';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import './index.css';
@@ -61,6 +62,7 @@ function AppLayout() {
           {pageRoutes.map((route) => (
             <Route key={route.path} path={route.path} element={route.element} />
           ))}
+          <Route path="/news/:slug" element={<NewsArticle />} />
           {pageRoutes.map((route) => (
             <Route
               key={`en${route.path}`}
@@ -68,6 +70,7 @@ function AppLayout() {
               element={route.element}
             />
           ))}
+          <Route path="/en/news/:slug" element={<NewsArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

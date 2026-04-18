@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getLanguageFromPath, localizePath, stripLanguagePrefix } from '../i18n';
+import { getNewsItemBySlug } from '../data/newsData';
 
 const seoConfig = {
   '/': {
@@ -123,8 +124,19 @@ export default function SeoManager() {
   useEffect(() => {
     const lang = getLanguageFromPath(location.pathname);
     const basePath = stripLanguagePrefix(location.pathname);
-    const config = seoConfig[basePath] || seoConfig['/'];
-    const meta = config[lang];
+    const isNewsArticle = basePath.startsWith('/news/');
+    const articleSlug = isNewsArticle ? basePath.replace('/news/', '') : null;
+    const article = articleSlug ? getNewsItemBySlug(lang, articleSlug) : null;
+    const config = article ? null : seoConfig[basePath] || seoConfig['/'];
+    const meta = article
+      ? {
+          title:
+            lang === 'en'
+              ? `${article.title} | News | Tangshan Hangao Special Equipment Inspection Co., Ltd.`
+              : `${article.title} | 新闻动态 | 唐山市杭奥特种设备检验有限公司`,
+          description: article.summary,
+        }
+      : config[lang];
     const canonical = `https://www.tshangao.cn${localizePath(basePath, lang)}`;
     const zhAlternate = `https://www.tshangao.cn${localizePath(basePath, 'zh')}`;
     const enAlternate = `https://www.tshangao.cn${localizePath(basePath, 'en')}`;
@@ -144,4 +156,3 @@ export default function SeoManager() {
 
   return null;
 }
-
