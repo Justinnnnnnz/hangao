@@ -7,8 +7,6 @@ const content = {
     bannerTitle: '关于我们',
     bannerSubtitle: '专业特种设备检验检测机构 · 为企业安全保驾护航',
     introTitle: '公司简介',
-    officialNameLabel: '官方英文名称',
-    officialEnglishName: 'Tangshan Hangao Special Equipment Inspection Co., Ltd.',
     introParagraphs: [
       '唐山市杭奥特种设备检验有限公司成立于2013年，是经国家市场监督管理总局核准的专业特种设备检验检测机构。公司位于河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000，拥有现代化的办公场所、检验实验室及配套技术装备。',
       '公司专注于特种设备检验检测领域，主要从事锅炉、压力容器、压力管道、电梯、起重机械、场（厂）内机动车辆等设备检验检测工作，同时提供无损检测（RT、UT、MT、PT）、理化检测、安全阀校验、能效测试等专业技术服务。',
@@ -103,8 +101,6 @@ const content = {
     bannerTitle: 'About Us',
     bannerSubtitle: 'Special equipment inspection and testing services dedicated to industrial safety and compliance',
     introTitle: 'Company Profile',
-    officialNameLabel: 'Official Chinese Name',
-    officialEnglishName: '唐山市杭奥特种设备检验有限公司',
     introParagraphs: [
       'Tangshan Hangao Special Equipment Inspection Co., Ltd. was founded in 2013 and is an approved professional inspection and testing organization for special equipment. The company is located in Lubei District, Tangshan, Hebei, with dedicated office facilities, laboratories and supporting technical equipment.',
       'Hangao focuses on the inspection and testing of boilers, pressure vessels, pressure piping, elevators, lifting machinery and in-plant vehicles, while also providing non-destructive testing (RT, UT, MT, PT), laboratory testing, safety valve calibration and energy efficiency testing services.',
@@ -218,9 +214,6 @@ export default function About() {
           <div className="about-intro">
             <div className="about-intro-text">
               <h2>{copy.introTitle}</h2>
-              <p>
-                <strong>{copy.officialNameLabel}:</strong> {copy.officialEnglishName}
-              </p>
               {copy.introParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
