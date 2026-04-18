@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
   height: 92px;
 }
 
@@ -51,7 +51,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -78,28 +78,31 @@
 .logo-name-fallback span {
   display: block;
   font-weight: 800;
-  font-size: clamp(1.28rem, 1.65vw, 1.75rem);
+  font-size: clamp(1.28rem, 1.62vw, 1.72rem);
   line-height: 1.18;
   letter-spacing: 0.25px;
+  white-space: nowrap;
 }
 
 .logo-name-fallback small {
   display: block;
   margin-top: 5px;
-  font-size: clamp(0.78rem, 1.02vw, 0.96rem);
+  font-size: clamp(0.82rem, 1vw, 0.98rem);
   line-height: 1.25;
   color: #556b85;
+  white-space: nowrap;
 }
 
 /* ===== Navigation ===== */
 .nav {
   display: flex;
-  gap: 8px;
+  gap: 0;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .nav-link {
-  padding: 8px 18px;
+  padding: 8px 12px;
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text);
@@ -130,6 +133,31 @@
   border-radius: 2px;
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  height: 38px;
+  padding: 0 14px;
+  margin-left: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: none;
+  letter-spacing: 0.01em;
+}
+
+.lang-toggle:hover {
+  border-color: var(--primary-light);
+  background: var(--bg-light);
+}
+
 /* ===== Menu Toggle (Mobile) ===== */
 .menu-toggle {
   display: none;
@@ -158,14 +186,23 @@
 
   .logo-name-fallback span {
     font-size: 1.08rem;
+    white-space: normal;
   }
 
   .logo-name-fallback small {
     font-size: 0.76rem;
+    white-space: normal;
   }
 
   .menu-toggle {
     display: block;
+  }
+
+  .lang-toggle {
+    height: 36px;
+    min-width: 72px;
+    padding: 0 14px;
+    font-size: 0.8rem;
   }
 
   .nav {
@@ -209,5 +246,10 @@
 
   .logo-name-fallback small {
     font-size: 0.66rem;
+  }
+
+  .lang-toggle {
+    min-width: 68px;
+    padding: 0 12px;
   }
 }
