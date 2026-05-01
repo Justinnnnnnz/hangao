@@ -1,24 +1,51 @@
+function stripTrailingSlash(pathname) {
+  if (!pathname || pathname === '/') {
+    return '/';
+  }
+
+  return pathname.replace(/\/+$/, '');
+}
+
+export function addTrailingSlash(pathname) {
+  if (!pathname || pathname === '/') {
+    return '/';
+  }
+
+  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+}
+
 export function getLanguageFromPath(pathname) {
   return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'zh';
 }
 
 export function stripLanguagePrefix(pathname) {
-  if (!pathname) {
+  const cleanPath = stripTrailingSlash((pathname || '/').split(/[?#]/)[0]);
+
+  if (!cleanPath) {
     return '/';
   }
 
-  if (pathname === '/en') {
+  if (cleanPath === '/en') {
     return '/';
   }
 
-  if (pathname.startsWith('/en/')) {
-    return pathname.slice(3);
+  if (cleanPath.startsWith('/en/')) {
+    return cleanPath.slice(3) || '/';
   }
 
-  return pathname;
+  return cleanPath;
 }
 
 export function localizePath(pathname, lang) {
+  const basePath = stripLanguagePrefix(pathname || '/');
+
+  const localizedPath =
+    lang === 'en' ? (basePath === '/' ? '/en' : `/en${basePath}`) : basePath;
+
+  return addTrailingSlash(localizedPath);
+}
+
+export function routePath(pathname, lang) {
   const basePath = stripLanguagePrefix(pathname || '/');
 
   if (lang === 'en') {
@@ -27,4 +54,3 @@ export function localizePath(pathname, lang) {
 
   return basePath;
 }
-

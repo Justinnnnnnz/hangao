@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SeoManager from './components/SeoManager';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { getLanguageFromPath, localizePath, stripLanguagePrefix } from './i18n';
+import { getLanguageFromPath, localizePath, routePath, stripLanguagePrefix } from './i18n';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -66,7 +66,7 @@ export default function AppShell() {
           {pageRoutes.map((route) => (
             <Route
               key={`en${route.path}`}
-              path={localizePath(route.path, 'en')}
+              path={routePath(route.path, 'en')}
               element={route.element}
             />
           ))}
