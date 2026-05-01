@@ -22,6 +22,16 @@ function injectSeo(html, seo) {
   );
   output = replaceTag(
     output,
+    /<meta\s+name="application-name"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="application-name" content="${seo.siteName}" />`,
+  );
+  output = replaceTag(
+    output,
+    /<meta\s+property="og:site_name"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:site_name" content="${seo.siteName}" />`,
+  );
+  output = replaceTag(
+    output,
     /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
     `<meta property="og:title" content="${seo.meta.title}" />`,
   );
@@ -43,9 +53,15 @@ function injectSeo(html, seo) {
 
   output = output.replace(/<link rel="alternate" hreflang="zh-CN" href="[^"]*"\s*\/?>/g, '');
   output = output.replace(/<link rel="alternate" hreflang="en" href="[^"]*"\s*\/?>/g, '');
+  output = output.replace(/<link rel="alternate" hreflang="x-default" href="[^"]*"\s*\/?>/g, '');
+  output = replaceTag(
+    output,
+    /<script id="structured-data" type="application\/ld\+json">[\s\S]*?<\/script>/,
+    `<script id="structured-data" type="application/ld+json">\n${JSON.stringify(seo.structuredData, null, 2)}\n    </script>`,
+  );
   output = output.replace(
     '</head>',
-    `    <link rel="alternate" hreflang="zh-CN" href="${seo.zhAlternate}" />\n    <link rel="alternate" hreflang="en" href="${seo.enAlternate}" />\n  </head>`,
+    `    <link rel="alternate" hreflang="zh-CN" href="${seo.zhAlternate}" />\n    <link rel="alternate" hreflang="en" href="${seo.enAlternate}" />\n    <link rel="alternate" hreflang="x-default" href="${seo.xDefault}" />\n  </head>`,
   );
 
   return output;
