@@ -5,13 +5,14 @@ const zhCompanyName = '唐山市杭奥特种设备检验有限公司';
 const enCompanyName = 'Tangshan Hangao Special Equipment Inspection Co., Ltd.';
 const siteUrl = 'https://www.tshangao.cn/';
 const logoUrl = 'https://www.tshangao.cn/hangao_logo.png';
+const zhHomeDescription =
+  '唐山市杭奥特种设备检验有限公司门户网站欢迎您！唐山市杭奥特种设备检验有限公司始终秉持专业、创新的理念，扎根唐山，业务辐射全国，以卓越的产品满足客户需求！';
 
 export const seoConfig = {
   '/': {
     zh: {
       title: zhCompanyName,
-      description:
-        `${zhCompanyName}，提供车用气瓶检测、安全阀校验、低温瓶检测、呼吸器检测、压力表检定等特种设备检验检测服务。`,
+      description: zhHomeDescription,
     },
     en: {
       title: enCompanyName,
