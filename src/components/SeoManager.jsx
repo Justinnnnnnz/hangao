@@ -14,6 +14,18 @@ function upsertMeta(name, content) {
   element.setAttribute('content', content);
 }
 
+function upsertHttpEquiv(httpEquiv, content) {
+  let element = document.head.querySelector(`meta[http-equiv="${httpEquiv}"]`);
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute('http-equiv', httpEquiv);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+}
+
 function upsertProperty(property, content) {
   let element = document.head.querySelector(`meta[property="${property}"]`);
 
@@ -68,9 +80,11 @@ export default function SeoManager() {
       getSeoForPath(location.pathname);
 
     document.title = meta.title;
-    document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+    const htmlLang = lang === 'en' ? 'en' : 'zh-CN';
+    document.documentElement.lang = htmlLang;
 
     upsertMeta('description', meta.description);
+    upsertHttpEquiv('content-language', htmlLang);
     upsertMeta('application-name', siteName);
     upsertProperty('og:site_name', siteName);
     upsertProperty('og:title', meta.title);

@@ -13,13 +13,25 @@ function replaceTag(html, pattern, replacement) {
 
 function injectSeo(html, seo) {
   let output = html;
-  output = replaceTag(output, /<html lang="[^"]*">/, `<html lang="${seo.lang === 'en' ? 'en' : 'zh-CN'}">`);
+  const htmlLang = seo.lang === 'en' ? 'en' : 'zh-CN';
+  output = replaceTag(output, /<html lang="[^"]*">/, `<html lang="${htmlLang}">`);
   output = replaceTag(output, /<title>.*?<\/title>/s, `<title>${seo.meta.title}</title>`);
   output = replaceTag(
     output,
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
     `<meta name="description" content="${seo.meta.description}" />`,
   );
+  output = replaceTag(
+    output,
+    /<meta\s+http-equiv="content-language"\s+content="[^"]*"\s*\/?>/,
+    `<meta http-equiv="content-language" content="${htmlLang}" />`,
+  );
+  if (!/<meta\s+http-equiv="content-language"/.test(output)) {
+    output = output.replace(
+      /(<meta\s+name="description"\s+content="[^"]*"\s*\/?>)/,
+      `$1\n    <meta http-equiv="content-language" content="${htmlLang}" />`,
+    );
+  }
   output = replaceTag(
     output,
     /<meta\s+name="application-name"\s+content="[^"]*"\s*\/?>/,
