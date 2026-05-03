@@ -99,7 +99,7 @@ export default function Footer() {
               </li>
               <li>
                 <FiPhone />
-                <span>13582928866</span>
+                <span>15536993625</span>
               </li>
               <li>
                 <FiMail />

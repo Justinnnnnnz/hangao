@@ -8,7 +8,7 @@ const content = {
     bannerTitle: '联系我们',
     bannerSubtitle: '欢迎咨询特种设备检测服务 · 我们将第一时间响应',
     cards: [
-      { icon: <FiPhone />, title: '服务热线', value: '13582928866', note: '工作日 08:00-17:30' },
+      { icon: <FiPhone />, title: '服务热线', value: '15536993625', note: '工作日 08:00-17:30' },
       { icon: <FiMail />, title: '邮箱咨询', value: 'hatj@tshangao.com.cn', note: '24小时内回复' },
       { icon: <FiMapPin />, title: '公司地址', value: '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000', note: '欢迎预约来访' },
       { icon: <FiClock />, title: '服务时间', value: '周一至周五 08:00-17:30', note: '节假日支持应急响应' },
@@ -44,7 +44,7 @@ const content = {
     bannerTitle: 'Contact',
     bannerSubtitle: 'Contact us for special equipment inspection services and we will respond as soon as possible',
     cards: [
-      { icon: <FiPhone />, title: 'Hotline', value: '13582928866', note: 'Weekdays 08:00-17:30' },
+      { icon: <FiPhone />, title: 'Hotline', value: '15536993625', note: 'Weekdays 08:00-17:30' },
       { icon: <FiMail />, title: 'Email', value: 'hatj@tshangao.com.cn', note: 'Reply within 24 hours' },
       { icon: <FiMapPin />, title: 'Address', value: 'Hangao Inspection Office Building, East of the intersection of Huancheng Road and Tangfeng North Road, Lubei District, Tangshan, Hebei, 063000', note: 'Visits available by appointment' },
       { icon: <FiClock />, title: 'Working Hours', value: 'Monday to Friday 08:00-17:30', note: 'Emergency response can be arranged on holidays' },

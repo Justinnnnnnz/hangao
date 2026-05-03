@@ -89,7 +89,7 @@ function buildOrganizationStructuredData() {
       url: logoUrl,
     },
     email: 'mailto:hatj@tshangao.com.cn',
-    telephone: '13582928866',
+    telephone: '15536993625',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '环城路与唐丰北路交叉路口杭奥特检办公楼',
@@ -101,7 +101,7 @@ function buildOrganizationStructuredData() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      telephone: '13582928866',
+      telephone: '15536993625',
       email: 'hatj@tshangao.com.cn',
       areaServed: 'CN',
       availableLanguage: ['zh-CN', 'en'],
