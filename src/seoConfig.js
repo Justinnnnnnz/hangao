@@ -7,6 +7,24 @@ const siteUrl = 'https://www.tshangao.cn/';
 const logoUrl = 'https://www.tshangao.cn/hangao_logo.png';
 const zhHomeDescription =
   '唐山市杭奥特种设备检验有限公司官方网站，提供车用气瓶检测、安全阀校验、低温瓶检测、呼吸器检测、压力表检定等特种设备检验检测服务。公司位于河北省唐山市路北区，服务工业与民用特种设备安全管理。';
+const companySameAsUrls = [
+  'https://www.hbsea.org/member/info/index.html?id=121',
+  'https://www.sme-gov.cn/hebei-gaoqi-631054.html',
+  'https://www.tianyancha.com/company/338422021',
+  'https://m.qizhidao.com/qiye/risk/9db5a67cf66c8c46dbf8cabdeaef7066.html',
+];
+const companySubjectOf = [
+  {
+    '@type': 'NewsArticle',
+    name: '唐山市杭奥特种设备检验有限公司',
+    url: 'https://tangshan.huanbohainews.com.cn/2020-05/03/content_80163.html',
+    datePublished: '2020-05-03',
+    publisher: {
+      '@type': 'Organization',
+      name: '环渤海新闻网',
+    },
+  },
+];
 
 export const seoConfig = {
   '/': {
@@ -84,6 +102,8 @@ function buildOrganizationStructuredData() {
     name: zhCompanyName,
     alternateName: enCompanyName,
     url: siteUrl,
+    sameAs: companySameAsUrls,
+    subjectOf: companySubjectOf,
     logo: {
       '@type': 'ImageObject',
       url: logoUrl,
