@@ -3,8 +3,9 @@ import { getNewsItemBySlug } from './data/newsData';
 
 const zhCompanyName = '唐山市杭奥特种设备检验有限公司';
 const enCompanyName = 'Tangshan Hangao Special Equipment Inspection Co., Ltd.';
-const siteUrl = 'https://www.tshangao.cn/';
-const logoUrl = 'https://www.tshangao.cn/hangao_logo.png';
+const siteBaseUrl = 'https://www.tshangao.com';
+const siteUrl = `${siteBaseUrl}/`;
+const logoUrl = `${siteBaseUrl}/hangao_logo.png`;
 const companyMapUrl =
   'https://map.baidu.com/poi/%E5%94%90%E5%B1%B1%E5%B8%82%E6%9D%AD%E5%A5%A5%E7%89%B9%E7%A7%8D%E8%AE%BE%E5%A4%87%E6%A3%80%E9%AA%8C%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@13147847.529733775,4790631.8492418,19z?uid=ac529f87acc9767b1d580034&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&sn_xy=-8834928.963611403,5382198.999867244&en_uid=ac529f87acc9767b1d580034&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl';
 const zhHomeDescription =
@@ -326,14 +327,14 @@ function buildBreadcrumbStructuredData({ basePath, article, canonical, lang }) {
   const items = [
     {
       name: labels['/'],
-      url: `https://www.tshangao.cn${localizePath('/', lang)}`,
+      url: `${siteBaseUrl}${localizePath('/', lang)}`,
     },
   ];
 
   if (basePath.startsWith('/news/') && article) {
     items.push({
       name: labels['/news'],
-      url: `https://www.tshangao.cn${localizePath('/news', lang)}`,
+      url: `${siteBaseUrl}${localizePath('/news', lang)}`,
     });
     items.push({
       name: article.title,
@@ -380,30 +381,30 @@ export function getSeoForPath(pathname) {
     article,
     meta,
     siteName: lang === 'en' ? enCompanyName : zhCompanyName,
-    xDefault: `https://www.tshangao.cn${localizePath(basePath, 'zh')}`,
-    canonical: `https://www.tshangao.cn${localizePath(basePath, lang)}`,
-    zhAlternate: `https://www.tshangao.cn${localizePath(basePath, 'zh')}`,
-    enAlternate: `https://www.tshangao.cn${localizePath(basePath, 'en')}`,
+    xDefault: `${siteBaseUrl}${localizePath(basePath, 'zh')}`,
+    canonical: `${siteBaseUrl}${localizePath(basePath, lang)}`,
+    zhAlternate: `${siteBaseUrl}${localizePath(basePath, 'zh')}`,
+    enAlternate: `${siteBaseUrl}${localizePath(basePath, 'en')}`,
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
         buildWebsiteStructuredData(lang),
         buildOrganizationStructuredData(),
         buildWebPageStructuredData({
-          canonical: `https://www.tshangao.cn${localizePath(basePath, lang)}`,
+          canonical: `${siteBaseUrl}${localizePath(basePath, lang)}`,
           lang,
           meta,
         }),
         buildNewsArticleStructuredData({
           article,
-          canonical: `https://www.tshangao.cn${localizePath(basePath, lang)}`,
+          canonical: `${siteBaseUrl}${localizePath(basePath, lang)}`,
           lang,
           meta,
         }),
         buildBreadcrumbStructuredData({
           basePath,
           article,
-          canonical: `https://www.tshangao.cn${localizePath(basePath, lang)}`,
+          canonical: `${siteBaseUrl}${localizePath(basePath, lang)}`,
           lang,
         }),
       ].filter(Boolean),
