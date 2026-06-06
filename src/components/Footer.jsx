@@ -137,11 +137,20 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {isEnglish ? 'Tangshan Hangao Special Equipment Inspection Co., Ltd. All Rights Reserved' : '唐山市杭奥特种设备检验有限公司 版权所有'}
           </p>
-          <p>
+          <div className="footer-filings">
             <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
               冀ICP备2026012504号
             </a>
-          </p>
+            <a
+              className="footer-police-filing"
+              href="https://beian.mps.gov.cn/#/query/webSearch?code=13020302001471"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/beian-police.png" alt="" aria-hidden="true" />
+              <span>冀公网安备13020302001471号</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

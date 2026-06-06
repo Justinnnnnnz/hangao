@@ -113,6 +113,8 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -124,6 +126,27 @@
 
 .footer-bottom a:hover {
   color: #fff;
+}
+
+.footer-filings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.footer-police-filing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-police-filing img {
+  width: 16px;
+  height: 17px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* ===== Responsive ===== */
@@ -147,7 +170,11 @@
   .footer-bottom {
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     text-align: center;
+  }
+
+  .footer-filings {
+    justify-content: center;
   }
 }
