@@ -44,6 +44,19 @@ export default function Footer() {
     ? 'Hangao Inspection Office Building, East of the intersection of Huancheng Road and Tangfeng North Road, Lubei District, Tangshan, Hebei, 063000'
     : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000';
   const workingHours = isEnglish ? 'Mon to Fri 8:00-17:30' : '周一至周五 8:00-17:30';
+  const phoneItems = isEnglish
+    ? [
+        { label: 'Front Desk / Business Office', number: '03157295555' },
+        { label: 'Company Office', number: '03158607777' },
+        { label: 'Supervising Manager', number: '13582928866' },
+        { label: 'HR Department', number: '15536993625' },
+      ]
+    : [
+        { label: '前台业务室', number: '03157295555' },
+        { label: '公司办公室', number: '03158607777' },
+        { label: '主管经理', number: '13582928866' },
+        { label: '人事部', number: '15536993625' },
+      ];
 
   return (
     <footer className="footer">
@@ -99,7 +112,13 @@ export default function Footer() {
               </li>
               <li>
                 <FiPhone />
-                <span>15536993625</span>
+                <div className="footer-phone-list">
+                  {phoneItems.map((item) => (
+                    <a key={item.number} href={`tel:${item.number}`}>
+                      {item.label}: {item.number}
+                    </a>
+                  ))}
+                </div>
               </li>
               <li>
                 <FiMail />

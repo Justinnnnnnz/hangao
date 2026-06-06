@@ -35,6 +35,7 @@ export default function Header() {
     : '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000';
   const companyName = '唐山市杭奥特种设备检验有限公司';
   const companySubname = 'Tangshan Hangao Special Equipment Inspection Co., Ltd.';
+  const headerPhone = '03158607777';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -52,7 +53,7 @@ export default function Header() {
       <div className="top-bar">
         <div className="container top-bar-inner">
           <div className="top-bar-left">
-            <span><FiPhone /> 15536993625</span>
+            <a href={`tel:${headerPhone}`}><FiPhone /> {headerPhone}</a>
             <span><FiMail /> hatj@tshangao.com.cn</span>
           </div>
           <div className="top-bar-right">

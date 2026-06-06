@@ -91,6 +91,21 @@
   color: var(--accent);
 }
 
+.footer-phone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-phone-list a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: var(--transition);
+}
+
+.footer-phone-list a:hover {
+  color: #fff;
+}
+
 /* ===== Footer Bottom ===== */
 .footer-bottom {
   margin-top: 40px;

@@ -6,6 +6,10 @@ const enCompanyName = 'Tangshan Hangao Special Equipment Inspection Co., Ltd.';
 const siteBaseUrl = 'https://www.tshangao.com';
 const siteUrl = `${siteBaseUrl}/`;
 const logoUrl = `${siteBaseUrl}/hangao_logo.png`;
+const frontDeskPhone = '03157295555';
+const companyOfficePhone = '03158607777';
+const managerZhangPhone = '13582928866';
+const hrDepartmentPhone = '15536993625';
 const companyMapUrl =
   'https://map.baidu.com/poi/%E5%94%90%E5%B1%B1%E5%B8%82%E6%9D%AD%E5%A5%A5%E7%89%B9%E7%A7%8D%E8%AE%BE%E5%A4%87%E6%A3%80%E9%AA%8C%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@13147847.529733775,4790631.8492418,19z?uid=ac529f87acc9767b1d580034&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&sn_xy=-8834928.963611403,5382198.999867244&en_uid=ac529f87acc9767b1d580034&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl';
 const zhHomeDescription =
@@ -226,7 +230,7 @@ function buildOrganizationStructuredData() {
       url: logoUrl,
     },
     email: 'mailto:hatj@tshangao.com.cn',
-    telephone: '15536993625',
+    telephone: frontDeskPhone,
     address: companyAddress,
     geo: {
       '@type': 'GeoCoordinates',
@@ -234,14 +238,38 @@ function buildOrganizationStructuredData() {
       longitude: 118.0949347,
     },
     hasMap: companyMapUrl,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      telephone: '15536993625',
-      email: 'hatj@tshangao.com.cn',
-      areaServed: companyAreaServed,
-      availableLanguage: ['zh-CN', 'en'],
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'Front Desk / Business Office',
+        telephone: frontDeskPhone,
+        email: 'hatj@tshangao.com.cn',
+        areaServed: companyAreaServed,
+        availableLanguage: ['zh-CN', 'en'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'Company Office',
+        telephone: companyOfficePhone,
+        email: 'hatj@tshangao.com.cn',
+        areaServed: companyAreaServed,
+        availableLanguage: ['zh-CN', 'en'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'Supervising Manager',
+        telephone: managerZhangPhone,
+        areaServed: companyAreaServed,
+        availableLanguage: ['zh-CN', 'en'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'HR Department',
+        telephone: hrDepartmentPhone,
+        areaServed: companyAreaServed,
+        availableLanguage: ['zh-CN', 'en'],
+      },
+    ],
   };
 }
 

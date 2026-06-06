@@ -18,10 +18,15 @@
 }
 
 .top-bar-left span,
+.top-bar-left a,
 .top-bar-right span {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.top-bar-left a {
+  color: inherit;
 }
 
 /* ===== Header ===== */

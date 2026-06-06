@@ -8,7 +8,17 @@ const content = {
     bannerTitle: '联系我们',
     bannerSubtitle: '欢迎咨询特种设备检测服务 · 我们将第一时间响应',
     cards: [
-      { icon: <FiPhone />, title: '服务热线', value: '15536993625', note: '工作日 08:00-17:30' },
+      {
+        icon: <FiPhone />,
+        title: '服务热线',
+        items: [
+          { label: '前台业务室', value: '03157295555', href: 'tel:03157295555' },
+          { label: '公司办公室', value: '03158607777', href: 'tel:03158607777' },
+          { label: '主管经理', value: '13582928866', href: 'tel:13582928866' },
+          { label: '人事部', value: '15536993625', href: 'tel:15536993625' },
+        ],
+        note: '工作日 08:00-17:30',
+      },
       { icon: <FiMail />, title: '邮箱咨询', value: 'hatj@tshangao.com.cn', note: '24小时内回复' },
       { icon: <FiMapPin />, title: '公司地址', value: '河北省唐山市路北区环城路与唐丰北路交叉路口杭奥特检办公楼，063000', note: '欢迎预约来访' },
       { icon: <FiClock />, title: '服务时间', value: '周一至周五 08:00-17:30', note: '节假日支持应急响应' },
@@ -31,7 +41,9 @@ const content = {
     selectPlaceholder: '请选择',
     types: ['锅炉', '压力容器', '压力管道', '电梯', '起重机械', '其他'],
     submit: '提交咨询',
+    submitting: '提交中...',
     success: '留言提交成功，我们已收到你的咨询信息。',
+    error: '留言提交失败，请稍后再试，或直接电话联系 03157295555。',
     faqTitle: '常见问题',
     faqSubtitle: '你可以先查看这些高频问题，快速了解常见咨询内容。',
     faqs: [
@@ -44,7 +56,17 @@ const content = {
     bannerTitle: 'Contact',
     bannerSubtitle: 'Contact us for special equipment inspection services and we will respond as soon as possible',
     cards: [
-      { icon: <FiPhone />, title: 'Hotline', value: '15536993625', note: 'Weekdays 08:00-17:30' },
+      {
+        icon: <FiPhone />,
+        title: 'Hotline',
+        items: [
+          { label: 'Front Desk / Business Office', value: '03157295555', href: 'tel:03157295555' },
+          { label: 'Company Office', value: '03158607777', href: 'tel:03158607777' },
+          { label: 'Supervising Manager', value: '13582928866', href: 'tel:13582928866' },
+          { label: 'HR Department', value: '15536993625', href: 'tel:15536993625' },
+        ],
+        note: 'Weekdays 08:00-17:30',
+      },
       { icon: <FiMail />, title: 'Email', value: 'hatj@tshangao.com.cn', note: 'Reply within 24 hours' },
       { icon: <FiMapPin />, title: 'Address', value: 'Hangao Inspection Office Building, East of the intersection of Huancheng Road and Tangfeng North Road, Lubei District, Tangshan, Hebei, 063000', note: 'Visits available by appointment' },
       { icon: <FiClock />, title: 'Working Hours', value: 'Monday to Friday 08:00-17:30', note: 'Emergency response can be arranged on holidays' },
@@ -67,7 +89,9 @@ const content = {
     selectPlaceholder: 'Please select',
     types: ['Boiler', 'Pressure Vessel', 'Pressure Piping', 'Elevator', 'Lifting Machinery', 'Other'],
     submit: 'Submit Inquiry',
+    submitting: 'Submitting...',
     success: 'Your inquiry has been submitted successfully. We will contact you soon.',
+    error: 'Submission failed. Please try again later or call 03157295555 directly.',
     faqTitle: 'Frequently Asked Questions',
     faqSubtitle: 'These common questions may help you quickly understand our service process.',
     faqs: [
@@ -79,14 +103,46 @@ const content = {
 };
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle');
   const { lang } = useLanguage();
   const copy = content[lang];
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
-    e.currentTarget.reset();
+    setStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get('name') || ''),
+      phone: String(formData.get('phone') || ''),
+      companyName: String(formData.get('companyName') || ''),
+      equipmentType: String(formData.get('equipmentType') || ''),
+      detail: String(formData.get('detail') || ''),
+      language: lang,
+      pageUrl: window.location.href,
+      website: String(formData.get('website') || ''),
+    };
+
+    try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const response = await fetch(`${apiBaseUrl}/api/inquiries`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Inquiry submission failed');
+      }
+
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
@@ -105,7 +161,17 @@ export default function Contact() {
               <article key={card.title} className="contact-card">
                 {card.icon}
                 <h3>{card.title}</h3>
-                <p>{card.value}</p>
+                {card.items ? (
+                  <div className="contact-phone-list">
+                    {card.items.map((item) => (
+                      <a key={item.value} href={item.href}>
+                        {item.label}: {item.value}
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <p>{card.value}</p>
+                )}
                 <span>{card.note}</span>
               </article>
             ))}
@@ -117,22 +183,26 @@ export default function Contact() {
             </h2>
             <p>{copy.formIntro}</p>
             <form className="contact-form" onSubmit={handleSubmit}>
+              <label className="form-honeypot" aria-hidden="true">
+                Website
+                <input name="website" tabIndex="-1" autoComplete="off" />
+              </label>
               <div className="form-grid">
                 <label>
                   {copy.labels.name}
-                  <input type="text" placeholder={copy.placeholders.name} required />
+                  <input name="name" type="text" placeholder={copy.placeholders.name} required />
                 </label>
                 <label>
                   {copy.labels.phone}
-                  <input type="tel" placeholder={copy.placeholders.phone} required />
+                  <input name="phone" type="tel" placeholder={copy.placeholders.phone} required />
                 </label>
                 <label>
                   {copy.labels.company}
-                  <input type="text" placeholder={copy.placeholders.company} required />
+                  <input name="companyName" type="text" placeholder={copy.placeholders.company} required />
                 </label>
                 <label>
                   {copy.labels.type}
-                  <select defaultValue="" required>
+                  <select name="equipmentType" defaultValue="" required>
                     <option value="" disabled>
                       {copy.selectPlaceholder}
                     </option>
@@ -144,14 +214,19 @@ export default function Contact() {
               </div>
               <label>
                 {copy.labels.detail}
-                <textarea rows="6" placeholder={copy.placeholders.detail} required />
+                <textarea name="detail" rows="6" placeholder={copy.placeholders.detail} required />
               </label>
-              <button type="submit" className="btn btn-primary">
-                {copy.submit} <FiSend />
+              <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
+                {status === 'submitting' ? copy.submitting : copy.submit} <FiSend />
               </button>
-              {submitted && (
+              {status === 'success' && (
                 <p className="form-success" role="status">
                   {copy.success}
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="form-error" role="alert">
+                  {copy.error}
                 </p>
               )}
             </form>
