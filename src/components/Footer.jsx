@@ -3,6 +3,8 @@ import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
 import { useLanguage } from '../contexts/LanguageContext';
 import './Footer.css';
 
+const showPoliceFiling = false;
+
 export default function Footer() {
   const { lang, buildPath } = useLanguage();
   const isEnglish = lang === 'en';
@@ -141,15 +143,17 @@ export default function Footer() {
             <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
               冀ICP备2026012504号
             </a>
-            <a
-              className="footer-police-filing"
-              href="https://beian.mps.gov.cn/#/query/webSearch?code=13020302001471"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/beian-police.png" alt="" aria-hidden="true" />
-              <span>冀公网安备13020302001471号</span>
-            </a>
+            {showPoliceFiling && (
+              <a
+                className="footer-police-filing"
+                href="https://beian.mps.gov.cn/#/query/webSearch?code=13020302001471"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src="/beian-police.png" alt="" aria-hidden="true" />
+                <span>冀公网安备13020302001471号</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
